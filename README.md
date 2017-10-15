@@ -6,6 +6,8 @@ FUNCTIONALITY
 The proposed functionality for this application includes the following:
 - storage and parsing of a series of sentences (or, possibly, single words)
 - presentation of a scrambled sentence using drag-and-drop tiles for each word
+- text-to-speech: say sentence (or word) as a hint \[on/off toggle\]
+- score keeping display (correct/completed/total)
 
 EXAMPLES
 --------
