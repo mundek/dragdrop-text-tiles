@@ -25,3 +25,4 @@ Vue.js
 - [4 part video playlist on learning Vue](https://www.youtube.com/watch?v=mZY1yyrlJWU&list=PLoYCgNOIyGADZuvKJweutZDOO9VI9YiJ9)
 - [TIME SUCK: Fullstack tutorial with Vue and Express](https://www.youtube.com/watch?v=Fa4cRMaTDUI&list=PLWKjhJtqVAbnadueQ-C5keMQQiQau_i0D)
 - [Learn Vue.js - A Quick and Friendly Tutorial](https://codepen.io/Splode/post/learn-vue-js-a-quick-and-friendly-tutorial)
+- [Vue.js in less than 30 minutes for beginners - Tutorial - 2.0](https://youtu.be/VPUdtEf3oXI)
