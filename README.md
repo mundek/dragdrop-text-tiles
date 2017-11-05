@@ -22,3 +22,7 @@ Vue.js
 ------
 
 - [Build a To-Do App with Vue.js 2](https://scotch.io/tutorials/build-a-to-do-app-with-vue-js-2)
+- [4 part video playlist on learning Vue](https://www.youtube.com/watch?v=mZY1yyrlJWU&list=PLoYCgNOIyGADZuvKJweutZDOO9VI9YiJ9)
+- [TIME SUCK: Fullstack tutorial with Vue and Express](https://www.youtube.com/watch?v=Fa4cRMaTDUI&list=PLWKjhJtqVAbnadueQ-C5keMQQiQau_i0D)
+- [Learn Vue.js - A Quick and Friendly Tutorial](https://codepen.io/Splode/post/learn-vue-js-a-quick-and-friendly-tutorial)
+- [Vue.js in less than 30 minutes for beginners - Tutorial - 2.0](https://youtu.be/VPUdtEf3oXI)
