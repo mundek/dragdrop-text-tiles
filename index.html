@@ -2,7 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Scrambled Eggs & Bacon</title>
+  <style>
+    .scrambled-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .scrambled-word {
+      font-size: 2em;
+      box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
+      padding: 1em;
+    }
+  </style>
 </head>
 <body>
   <h1>Word Scramble</h1>
@@ -10,7 +21,7 @@
 
   <div id="app">
     <textarea 
-      v-bind:value="input"
+      v-model:value="input"
       class="text-input" 
       rows="10" 
       cols="100">
@@ -18,15 +29,21 @@
     <button v-on:click="scramble" class="scramble-btn">Scramble</button>
     <br>
     <br>
-    <textarea 
-      v-bind:value="scrambled"
-      class="scrambled-output" 
-      rows="10" 
-      cols="100">
-    </textarea>
+    <div 
+      class="scrambled-container"
+      v-dragula="colOne" 
+      bag="first-bag">
+      <div 
+        class="scrambled-word"
+        v-for="text in colOne" 
+        :key="text">
+        {{text}}
+      </div>
+    </div>
   </div>
 
   <script src="https://unpkg.com/vue"></script>
+  <script src="node_modules/vue-dragula/dist/vue-dragula.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
