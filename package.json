@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mundek/dragdrop-text-tiles/issues"
   },
-  "homepage": "https://github.com/mundek/dragdrop-text-tiles#readme"
+  "homepage": "https://github.com/mundek/dragdrop-text-tiles#readme",
+  "dependencies": {
+    "sortablejs": "^1.7.0"
+  }
 }
