@@ -5,11 +5,18 @@
   <title>Scrambled Eggs & Bacon</title>
   <style>
     .scrambled-container {
-      display: flex;
-      flex-wrap: wrap;
+      /* display: flex; */
+      /* flex-wrap: wrap; */
     }
     .scrambled-word {
       font-size: 2em;
+      display: inline-block;
+      box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
+      padding: 1em;
+    }
+    .item {
+      font-size: 2em;
+      display: inline-block;
       box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
       padding: 1em;
     }
@@ -30,20 +37,19 @@
     <br>
     <br>
     <div 
-      class="scrambled-container"
-      v-dragula="colOne" 
-      bag="first-bag">
+      class="sortable-container"
+      @start="drag=true" 
+      @end="drag=false">
       <div 
-        class="scrambled-word"
-        v-for="text in colOne" 
-        :key="text">
-        {{text}}
+        class="item"
+        v-for="word in words">
+        {{ word }}
       </div>
     </div>
   </div>
 
   <script src="https://unpkg.com/vue"></script>
-  <script src="node_modules/vue-dragula/dist/vue-dragula.min.js"></script>
+  <script src="node_modules/sortablejs/Sortable.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

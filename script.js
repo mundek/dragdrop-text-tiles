@@ -1,9 +1,9 @@
 const app = new Vue({
   el: '#app',
   data: {
-    input: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    input: 'I like to party.',
     scrambled: '',
-    colOne: [],
+    words: [],
   },
   methods: {
     /**
@@ -11,15 +11,25 @@ const app = new Vue({
      * and outputs to the scrambled textarea
      */
     scramble: function() {
-      const arrCopy = this.input.split(' ')
+      const arr = this.input.split(' ')
       const scrambled = []
 
-      for (let i=arrCopy.length-1; i>=0; i-=1) {
-        scrambled.push(arrCopy.splice(Math.floor(Math.random()*arrCopy.length), 1)[0])
+      for (let i=arr.length-1; i>=0; i-=1) {
+        const randomInt = Math.floor(Math.random()*arr.length)
+        const word = arr.splice(randomInt, 1)[0]
+        scrambled.push(word)
       }
 
-      this.colOne = scrambled
+      this.words = scrambled
     }
   }
+})
+
+const container = document.querySelector('.sortable-container')
+Sortable.create(container, {
+  animation: 150,
+  handle: '.item',
+  draggable: ".item",
+  ghostClass: "item--ghost",
 })
 
