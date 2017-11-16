@@ -1,7 +1,7 @@
 const app = new Vue({
   el: '#app',
   data: {
-    input: 'I like to party.',
+    input: 'To the extreme, I rock a mic like a vandal. Light up a stage and wax a chump like a candle.',
     words: [],
   },
   methods: {
