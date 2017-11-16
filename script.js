@@ -2,7 +2,6 @@ const app = new Vue({
   el: '#app',
   data: {
     input: 'I like to party.',
-    scrambled: '',
     words: [],
   },
   methods: {
@@ -23,13 +22,5 @@ const app = new Vue({
       this.words = scrambled
     }
   }
-})
-
-const container = document.querySelector('.sortable-container')
-Sortable.create(container, {
-  animation: 150,
-  handle: '.item',
-  draggable: ".item",
-  ghostClass: "item--ghost",
 })
 

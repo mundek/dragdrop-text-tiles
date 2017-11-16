@@ -36,20 +36,20 @@
     <button v-on:click="scramble" class="scramble-btn">Scramble</button>
     <br>
     <br>
-    <div 
-      class="sortable-container"
-      @start="drag=true" 
-      @end="drag=false">
+    <draggable 
+      v-model="words"
+      class="sortable-container">
       <div 
         class="item"
         v-for="word in words">
         {{ word }}
       </div>
-    </div>
+    </draggable>
   </div>
 
   <script src="https://unpkg.com/vue"></script>
   <script src="node_modules/sortablejs/Sortable.min.js"></script>
+  <script src="node_modules/vuedraggable/dist/vuedraggable.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
