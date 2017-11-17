@@ -5,46 +5,54 @@
   <title>Scrambled Eggs & Bacon</title>
   <style>
     .scrambled-container {
-      /* display: flex; */
-      /* flex-wrap: wrap; */
-    }
-    .scrambled-word {
-      font-size: 2em;
-      display: inline-block;
-      box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
-      padding: 1em;
+      background-color: #f3f3f3;
+      margin-bottom: 1em;
     }
     .item {
+      background-color: #ffffff;
       font-size: 2em;
       display: inline-block;
       box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
       padding: 1em;
+      margin: 0.5em;
+    }
+    .app-title {
+      text-align: center;
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 4em;
+      text-transform: uppercase;
+    }
+    #app {
+      width: 800px;
+      margin: auto;
+    }
+    .bottom-row {
+      display: flex;
+      justify-content: space-between;
     }
   </style>
 </head>
 <body>
-  <h1>Word Scramble</h1>
-  <h2>with drag and drop</h2>
+  <h1 class="app-title">Word Scramble</h1>
 
   <div id="app">
-    <textarea 
-      v-model:value="input"
-      class="text-input" 
-      rows="10" 
-      cols="100">
-    </textarea>
-    <button v-on:click="scramble" class="scramble-btn">Scramble</button>
-    <br>
-    <br>
-    <draggable 
-      v-model="words"
-      class="sortable-container">
-      <div 
-        class="item"
-        v-for="word in words">
-        {{ word }}
-      </div>
-    </draggable>
+    <div class="scrambled-container">
+      <draggable 
+        v-model="words"
+        class="sortable-container">
+        <div 
+          class="item"
+          v-for="word in words">
+          {{ word }}
+        </div>
+      </draggable>
+    </div>
+    <div class="bottom-row">
+      <button v-on:click="scramble" class="scramble-btn">New Sentence</button>
+      <button>Listen to Sentence</button>
+      <div>Score: {{ score }}</div>
+    </div>
   </div>
 
   <script src="https://unpkg.com/vue"></script>

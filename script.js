@@ -1,8 +1,15 @@
 const app = new Vue({
   el: '#app',
   data: {
-    input: 'To the extreme, I rock a mic like a vandal. Light up a stage and wax a chump like a candle.',
+    sentences: [
+      "To the extreme, I rock a mic like a vandal. Light up a stage and wax a chump like a candle.",
+      "See spot run.",
+      "I see dead people.",
+      "I'll be back.",
+    ],
     words: [],
+    currentSentence: null,
+    score: 0,
   },
   methods: {
     /**
@@ -10,16 +17,26 @@ const app = new Vue({
      * and outputs to the scrambled textarea
      */
     scramble: function() {
-      const arr = this.input.split(' ')
-      const scrambled = []
+      // pick a random sentence from the sentences array
+      // and set it as the current index
+      const sentenceIndex = Math.floor(Math.random()*this.sentences.length)
+      this.currentSentence = sentenceIndex
 
-      for (let i=arr.length-1; i>=0; i-=1) {
-        const randomInt = Math.floor(Math.random()*arr.length)
-        const word = arr.splice(randomInt, 1)[0]
-        scrambled.push(word)
+      // create an array of all the words
+      // and an array that will contain the scrambled words
+      const wordsArray = this.sentences[sentenceIndex].split(' ')
+      const scrambledWords = []
+
+      // loop over all of the words
+      // randomly splice one out and push onto new array
+      for (let i=wordsArray.length-1; i>=0; i-=1) {
+        const randomInt = Math.floor(Math.random()*wordsArray.length)
+        const word = wordsArray.splice(randomInt, 1)[0]
+        scrambledWords.push(word)
       }
 
-      this.words = scrambled
+      // return new array as the list the user must fix
+      this.words = scrambledWords
     }
   }
 })
