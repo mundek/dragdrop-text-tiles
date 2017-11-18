@@ -13,30 +13,50 @@ const app = new Vue({
   },
   methods: {
     /**
-     * Randomizes what is in the input textarea 
+     * Picks a random sentence from the sentences array
      * and outputs to the scrambled textarea
      */
     scramble: function() {
+      // need reference to self for recursive random function
+      const self = this
+
       // pick a random sentence from the sentences array
       // and set it as the current index
-      const sentenceIndex = Math.floor(Math.random()*this.sentences.length)
-      this.currentSentence = sentenceIndex
+      // if it's the same as the previous then try again
+      function randomSentence() {
+        const sentenceIndex = Math.floor(Math.random()*self.sentences.length)
 
-      // create an array of all the words
-      // and an array that will contain the scrambled words
-      const wordsArray = this.sentences[sentenceIndex].split(' ')
-      const scrambledWords = []
-
-      // loop over all of the words
-      // randomly splice one out and push onto new array
-      for (let i=wordsArray.length-1; i>=0; i-=1) {
-        const randomInt = Math.floor(Math.random()*wordsArray.length)
-        const word = wordsArray.splice(randomInt, 1)[0]
-        scrambledWords.push(word)
+        if (self.currentSentence !== sentenceIndex) {
+          self.currentSentence = sentenceIndex
+        } else {
+          randomSentence()
+        }
       }
+      randomSentence()
 
-      // return new array as the list the user must fix
-      this.draggableWordsOrder = scrambledWords
+      function scramblize() {
+        // create an array of all the words
+        // and an array that will contain the scrambled words
+        const wordsArray = self.sentences[self.currentSentence].split(' ')
+        const originalSentence = self.sentences[self.currentSentence]
+        const scrambledWords = []
+
+        // loop over all of the words
+        // randomly splice one out and push onto new array
+        for (let i=wordsArray.length-1; i>=0; i-=1) {
+          const randomInt = Math.floor(Math.random()*wordsArray.length)
+          const word = wordsArray.splice(randomInt, 1)[0]
+          scrambledWords.push(word)
+        }
+
+        if (scrambledWords.join(' ') !== originalSentence) {
+          // return new array as the list the user must fix
+          self.draggableWordsOrder = scrambledWords
+        } else {
+          scramblize()
+        }
+      }
+      scramblize()
     },
     checkAnswer: function() {
       const draggableWords = this.draggableWordsOrder.join(' ')
