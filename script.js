@@ -42,7 +42,9 @@ const app = new Vue({
       const draggableWords = this.draggableWordsOrder.join(' ')
       const currentSentence = this.sentences[this.currentSentence]
       if (draggableWords === currentSentence) {
-        alert('You win, try a new sentence')
+        alert("That's right! Try a new sentence!")
+      } else {
+        alert("Uh oh, that's not quite right. Try again.")
       }
     },
   }
