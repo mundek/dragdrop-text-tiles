@@ -7,6 +7,7 @@
     .scrambled-container {
       background-color: #f3f3f3;
       margin-bottom: 1em;
+      min-height: 134px;
     }
     .item {
       background-color: #ffffff;
@@ -31,6 +32,9 @@
       display: flex;
       justify-content: space-between;
     }
+    [v-cloak] {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -39,11 +43,12 @@
   <div id="app">
     <div class="scrambled-container">
       <draggable 
-        v-model="words"
+        v-model="draggableWordsOrder"
         class="sortable-container">
         <div 
+          v-cloak
           class="item"
-          v-for="word in words">
+          v-for="word in draggableWordsOrder">
           {{ word }}
         </div>
       </draggable>
@@ -51,7 +56,8 @@
     <div class="bottom-row">
       <button v-on:click="scramble" class="scramble-btn">New Sentence</button>
       <button>Listen to Sentence</button>
-      <div>Score: {{ score }}</div>
+      <button v-on:click="checkAnswer">Check Answer</button>
+      <div>Score: <span v-cloak>{{ score }}</span></div>
     </div>
   </div>
 

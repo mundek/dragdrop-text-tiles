@@ -7,7 +7,7 @@ const app = new Vue({
       "I see dead people.",
       "I'll be back.",
     ],
-    words: [],
+    draggableWordsOrder: [],
     currentSentence: null,
     score: 0,
   },
@@ -36,8 +36,15 @@ const app = new Vue({
       }
 
       // return new array as the list the user must fix
-      this.words = scrambledWords
-    }
+      this.draggableWordsOrder = scrambledWords
+    },
+    checkAnswer: function() {
+      const draggableWords = this.draggableWordsOrder.join(' ')
+      const currentSentence = this.sentences[this.currentSentence]
+      if (draggableWords === currentSentence) {
+        alert('You win, try a new sentence')
+      }
+    },
   }
 })
 
