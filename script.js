@@ -64,6 +64,7 @@ const app = new Vue({
       if (draggableWords === currentSentence) {
         this.score += 10
         alert("That's right! Try a new sentence!")
+        this.scramble()
       } else {
         this.score -= 5
         this.score = (this.score < 0) ? 0 : this.score
