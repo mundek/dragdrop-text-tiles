@@ -10,6 +10,7 @@
       min-height: 134px;
     }
     .item {
+      cursor: pointer;
       background-color: #ffffff;
       font-size: 2em;
       display: inline-block;
@@ -42,10 +43,10 @@
 
   <div id="app">
     <div class="scrambled-container">
-      <draggable 
+      <draggable
         v-model="draggableWordsOrder"
         class="sortable-container">
-        <div 
+        <div
           v-cloak
           class="item"
           v-for="word in draggableWordsOrder">
