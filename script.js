@@ -83,6 +83,10 @@ const app = new Vue({
         alert("Uh oh, that's not quite right. Try again.")
       }
     },
+    saySentence: function() {
+      if(this.sentences[this.currentSentence]) {
+        responsiveVoice.speak(this.sentences[this.currentSentence], 'Spanish Latin American Female');
+      }
+    }
   }
 })
-
