@@ -27,3 +27,4 @@ Vue.js
 - [Learn Vue.js - A Quick and Friendly Tutorial](https://codepen.io/Splode/post/learn-vue-js-a-quick-and-friendly-tutorial)
 - [Vue.js in less than 30 minutes for beginners - Tutorial - 2.0](https://youtu.be/VPUdtEf3oXI)
 - [The Net Ninja: Vue JS 2 Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa)
+- [Vue.js 2 Quickstart Tutorial 2017](https://medium.com/codingthesmartway-com-blog/vue-js-2-quickstart-tutorial-2017-246195cfbdd2)
