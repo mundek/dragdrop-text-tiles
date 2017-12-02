@@ -85,7 +85,7 @@ const app = new Vue({
     },
     saySentence: function() {
       if(this.sentences[this.currentSentence]) {
-        responsiveVoice.speak(this.sentences[this.currentSentence], 'Spanish Latin American Female');
+        responsiveVoice.speak(this.sentences[this.currentSentence], 'US English Female');
       }
     }
   }
