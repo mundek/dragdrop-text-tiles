@@ -1,0 +1,23 @@
+{
+  "name": "dragdrop-text-tiles",
+  "version": "1.0.0",
+  "description": "FUNCTIONALITY -------------",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mundek/dragdrop-text-tiles.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mundek/dragdrop-text-tiles/issues"
+  },
+  "homepage": "https://github.com/mundek/dragdrop-text-tiles#readme",
+  "dependencies": {
+    "sortablejs": "^1.7.0",
+    "vuedraggable": "^2.15.0"
+  }
+}

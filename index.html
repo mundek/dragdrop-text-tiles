@@ -2,41 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>Scrambled Eggs & Bacon</title>
+  <style>
+    .scrambled-container {
+      background-color: #f3f3f3;
+      margin-bottom: 1em;
+      min-height: 134px;
+    }
+    .item {
+      cursor: pointer;
+      background-color: #ffffff;
+      font-size: 2em;
+      display: inline-block;
+      box-shadow: 0 0 6px 0 rgba(0,0,0,0.3);
+      padding: 1em;
+      margin: 0.5em;
+    }
+    .app-title {
+      text-align: center;
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 4em;
+      text-transform: uppercase;
+    }
+    #app {
+      width: 800px;
+      margin: auto;
+    }
+    .bottom-row {
+      display: flex;
+      justify-content: space-between;
+    }
+    [v-cloak] {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Word Scramble</h1>
-  <h2>with drag and drop</h2>
+  <h1 class="app-title">Word Scramble</h1>
 
-  <textarea class="text-input" rows="10" cols="100">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-  <button class="scramble-btn">Scramble</button>
-  <br>
-  <br>
-  <textarea class="scrambled-output" rows="10" cols="100"></textarea>
+  <div id="app">
+    <div class="scrambled-container">
+      <draggable
+        v-model="draggableWordsOrder"
+        class="sortable-container">
+        <div
+          v-cloak
+          class="item"
+          v-for="word in draggableWordsOrder">
+          {{ word }}
+        </div>
+      </draggable>
+    </div>
+    <div class="bottom-row">
+      <button v-on:click="scramble" class="scramble-btn">New Sentence</button>
+      <button v-on:click="saySentence">Listen to Sentence</button>
+      <button v-on:click="checkAnswer">Check Answer</button>
+      <div>Score: <span v-cloak>{{ score }}</span></div>
+    </div>
+  </div>
 
-  <script>
-    const scrambleBtn = document.querySelector('.scramble-btn')
-    const scrambledOutput = document.querySelector('.scrambled-output')
-    const textInput = document.querySelector('.text-input')
-
-    scrambleBtn.addEventListener('click', () => {
-      const wordsArray = textInput.value.split(' ')
-      const scrambledArray = scramble(wordsArray)
-
-      scrambledArray.forEach(word => scrambledOutput.insertAdjacentHTML('beforeend', `${word} `))
-    })
-
-    function scramble(arr) {
-      const arrCopy = arr.slice(0)
-      const scrambled = []
-
-      for (let i=arrCopy.length-1; i>=0; i-=1) {
-        scrambled.push(arrCopy.splice(Math.floor(Math.random()*arrCopy.length), 1))
-      }
-
-      return scrambled
-    }
-
-  </script>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="node_modules/sortablejs/Sortable.min.js"></script>
+  <script src="node_modules/vuedraggable/dist/vuedraggable.js"></script>
+  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
