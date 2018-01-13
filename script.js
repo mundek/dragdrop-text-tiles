@@ -1,7 +1,7 @@
 fetch('sentences.txt')
   .then(function(x) { return x.text() })
   .then(function(x) {
-    const sentences = x.split('\n')
+    var sentences = x.split('\n')
       .filter(function(x) { return x.trim() !== "" })
     init(sentences)
   })
@@ -28,7 +28,7 @@ function init(sentences) {
         // and set it as the current index
         // if it's the same as the previous then try again
         function randomSentence() {
-          const sentenceIndex = Math.floor(Math.random()*self.sentences.length)
+          var sentenceIndex = Math.floor(Math.random()*self.sentences.length)
 
           if (self.currentSentence !== sentenceIndex) {
             self.currentSentence = sentenceIndex
